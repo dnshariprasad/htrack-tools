@@ -58,7 +58,6 @@ export function Stopwatch() {
           <h3>{calculateTimeDifference(startTime, endTime)}</h3>
         )}
         <ButtonComponent
-          buttonClass="right-button"
           lable={handleButtonTitle(running)}
           onButtonClick={handleStopEndClick}
         />
