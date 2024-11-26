@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../store";
 import { handleStopwatch } from "../slices/stopWatchSlice";
 import { toLocaleDateString, calculateTimeDifference } from "../TimeUtils";
+import { ENDED, NONE, STARTED } from "../StopWatchActions";
 
 export function Stopwatch() {
   const { running, startTime, endTime } = useSelector(
@@ -24,13 +25,13 @@ export function Stopwatch() {
 
   const handleButtonTitle = (stopwatchIsRunning: string) => {
     switch (stopwatchIsRunning) {
-      case "none": {
+      case NONE: {
         return "Start";
       }
-      case "started": {
+      case STARTED: {
         return "End";
       }
-      case "ended": {
+      case ENDED: {
         return "Reset";
       }
     }

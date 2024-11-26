@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ENDED, NONE, STARTED } from "../StopWatchActions";
 
 interface StopwatchState {
   running: string;
@@ -13,24 +14,24 @@ const initialState: StopwatchState = {
 };
 
 const counterSlice = createSlice({
-  name: "HtracK",
+  name: "stopwatch",
   initialState,
   reducers: {
     handleStopwatch: (state) => {
       switch (state.running) {
-        case "none": {
-          state.running = "started";
+        case NONE: {
+          state.running = STARTED;
           state.startTime = new Date().getTime();
           state.endTime = 0;
           break;
         }
-        case "started": {
-          state.running = "ended";
+        case STARTED: {
+          state.running = ENDED;
           state.endTime = new Date().getTime();
           break;
         }
-        case "ended": {
-          state.running = "none";
+        case ENDED: {
+          state.running = NONE;
           state.startTime = 0;
           state.endTime = 0;
           break;
