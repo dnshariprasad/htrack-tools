@@ -13,7 +13,7 @@ const initialState: StopwatchState = {
 };
 
 const counterSlice = createSlice({
-  name: "stopwatch",
+  name: "HtracK",
   initialState,
   reducers: {
     handleStopwatch: (state) => {
